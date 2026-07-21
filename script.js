@@ -115,11 +115,32 @@ document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('contact-form');
   const formWrap = document.getElementById('contact-form-wrap');
   const successWrap = document.getElementById('contact-success');
+  const errorEl = document.getElementById('contact-error');
+  const submitBtn = document.getElementById('contact-submit-btn');
   if (form) {
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      if (formWrap) formWrap.style.display = 'none';
-      if (successWrap) successWrap.style.display = 'block';
+      if (errorEl) errorEl.style.display = 'none';
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending…';
+      }
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { Accept: 'application/json' },
+        });
+        if (!res.ok) throw new Error('Form submission failed');
+        if (formWrap) formWrap.style.display = 'none';
+        if (successWrap) successWrap.style.display = 'block';
+      } catch (err) {
+        if (errorEl) errorEl.style.display = 'block';
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Send message';
+        }
+      }
     });
   }
 });
