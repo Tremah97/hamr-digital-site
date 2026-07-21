@@ -1,20 +1,27 @@
 # Hamr Digital site — outstanding work
 
-1. **Wire up the contact form to actually send.** Right now submitting just
-   flips a local "message sent" state (`script.js`) — nothing is emailed or
-   stored anywhere. Needs a real backend: Formspree, a mailto fallback, or a
-   proper API route.
-2. **Gitignore `.server.js`.** It's the local static file server used only
-   for previewing the site during development and shouldn't ship in the repo
-   history. Add a `.gitignore` (or delete it if a local server is no longer
-   needed).
-3. **Verify mobile on a real device.** Layout was checked at emulated
-   375/768/1280px viewports only. Confirm on an actual phone, especially
-   Safari's address-bar / `100vh` behavior on the hero section.
-4. **Consider a real mobile nav (hamburger menu).** Currently the
-   Services/Pricing/Work links are just hidden below 600px; the "Start a
-   project" CTA and full footer nav remain. Revisit if a slide-out menu is
-   wanted instead.
-5. **GitHub Pages 404 at `tremah97.github.io/hamr-digital-site`.** Not an
-   issue if only the Vercel URL (`hamr-digital-site.vercel.app`) is meant to
-   be live, but flagging in case Pages was also intended as a target.
+- [x] **Wire up the contact form to actually send.** Now POSTs to Formspree
+  (`https://formspree.io/f/xaqrbank`) with loading/success/error states.
+  Verified delivering to hamr.digital@gmail.com.
+- [x] **Gitignore `.server.js`.** Added `.gitignore`; the local dev preview
+  server is no longer tracked (still exists locally for previewing).
+- [x] **Verify mobile on a real device.** Checked on an actual phone — fine.
+- [x] **Mobile nav.** Kept as-is (secondary links hidden below 600px, CTA +
+  footer nav remain) — no hamburger menu needed, page reads clean and simple.
+- [x] **Link footer social icons.** Instagram and TikTok now point at the
+  real profiles instead of `#` placeholders.
+- [x] **Custom domain.** Live at hamrdigital.co.uk (apex) and
+  www.hamrdigital.co.uk, both with valid certs. No secondary GitHub Pages
+  target needed.
+- [x] **Favicon.** Inline SVG data URI matching the header's diamond mark.
+- [x] **Open Graph / Twitter card meta tags.** Added og:*/twitter:* tags plus
+  a generated 1200x630 `og-image.png` so shared links get a proper preview.
+
+## Possible next improvements (not started)
+
+- Basic analytics (e.g. Vercel Analytics) — no visibility into traffic or
+  which contact-form submissions convert.
+- `robots.txt` / sitemap.xml — minor SEO polish.
+- Contrast pass on muted grey text (`#8f96a3`) against the dark navy
+  background — fine for decorative labels, worth checking anywhere it
+  carries real content.
