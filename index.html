@@ -34,6 +34,22 @@
   .hover-header:hover { background: rgba(217,201,163,0.12) !important; border-color: rgba(217,201,163,0.7) !important; }
   .hover-ghost:hover { background: rgba(217,201,163,0.08) !important; border-color: rgba(217,201,163,0.6) !important; }
   .hover-cta:hover { transform: scale(1.045) !important; background:#7A8B6F !important; border-color:#7A8B6F !important; color:#F2EEE6 !important; box-shadow:0 0 34px rgba(122,139,111,0.55) !important; }
+
+  /* Collapse side-by-side layouts before the visual + text pairs get cramped. */
+  @media (max-width: 860px) {
+    .work-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
+    .contact-grid { grid-template-columns: 1fr !important; }
+  }
+
+  /* Phone-sized screens: single-column forms, tighter footer, trimmed nav. */
+  @media (max-width: 600px) {
+    .nav-link { display: none !important; }
+    .form-row { grid-template-columns: 1fr !important; }
+    .footer-grid { grid-template-columns: 1fr 1fr !important; }
+    .process-steps { gap: 6px !important; }
+    .process-label { font-size: 13px !important; }
+    .process-sub { display: none !important; }
+  }
 </style>
 </head>
 <body>
@@ -47,9 +63,9 @@
       Hamr Digital
     </a>
     <nav style="display:flex; align-items:center; gap:clamp(14px,2vw,32px);">
-      <a href="#services" style="font-size:13px; letter-spacing:0.06em; color:#C9CBC0;">Services</a>
-      <a href="#pricing" style="font-size:13px; letter-spacing:0.06em; color:#C9CBC0;">Pricing</a>
-      <a href="#work" style="font-size:13px; letter-spacing:0.06em; color:#C9CBC0;">Work</a>
+      <a href="#services" class="nav-link" style="font-size:13px; letter-spacing:0.06em; color:#C9CBC0;">Services</a>
+      <a href="#pricing" class="nav-link" style="font-size:13px; letter-spacing:0.06em; color:#C9CBC0;">Pricing</a>
+      <a href="#work" class="nav-link" style="font-size:13px; letter-spacing:0.06em; color:#C9CBC0;">Work</a>
       <a href="#contact" style="font-size:13px; letter-spacing:0.06em; padding:9px 18px; border:1px solid rgba(217,201,163,0.4); border-radius:8px; color:#EDE8DC;" class="hover-header">Start a project</a>
     </nav>
   </header>
@@ -164,17 +180,17 @@
         <line data-draw x1="60" y1="12" x2="940" y2="12" stroke="#7A8B6F" stroke-width="2" stroke-dasharray="880" stroke-dashoffset="880" style="transition:stroke-dashoffset 1.9s cubic-bezier(.4,0,.2,1);"></line>
       </svg>
       <div data-travel style="position:absolute; top:25px; left:6%; width:13px; height:13px; margin-left:-6px; border-radius:50%; background:#D9C9A3; box-shadow:0 0 16px 4px rgba(217,201,163,0.65); opacity:0; z-index:2; pointer-events:none;"></div>
-      <div style="position:relative; display:grid; grid-template-columns:repeat(4,1fr); gap:12px;">
-        <div data-reveal data-delay="200" style="opacity:0; transform:translateY(20px); transition:opacity .7s ease, transform .7s ease; display:flex; flex-direction:column; align-items:center; text-align:center;"><div style="width:44px; height:44px; border-radius:50%; background:#14203a; border:2px solid #D9C9A3; display:flex; align-items:center; justify-content:center; color:#D9C9A3; font-size:15px; font-weight:500;">1</div><div style="margin-top:18px; font-size:15px; font-weight:500; color:#F2EEE6;">Discovery call</div><div style="margin-top:6px; font-size:13px; color:#9AA096; font-weight:300;">Listen first</div></div>
-        <div data-reveal data-delay="700" style="opacity:0; transform:translateY(20px); transition:opacity .7s ease, transform .7s ease; display:flex; flex-direction:column; align-items:center; text-align:center;"><div style="width:44px; height:44px; border-radius:50%; background:#14203a; border:2px solid #D9C9A3; display:flex; align-items:center; justify-content:center; color:#D9C9A3; font-size:15px; font-weight:500;">2</div><div style="margin-top:18px; font-size:15px; font-weight:500; color:#F2EEE6;">Strategy</div><div style="margin-top:6px; font-size:13px; color:#9AA096; font-weight:300;">Shape the plan</div></div>
-        <div data-reveal data-delay="1200" style="opacity:0; transform:translateY(20px); transition:opacity .7s ease, transform .7s ease; display:flex; flex-direction:column; align-items:center; text-align:center;"><div style="width:44px; height:44px; border-radius:50%; background:#14203a; border:2px solid #D9C9A3; display:flex; align-items:center; justify-content:center; color:#D9C9A3; font-size:15px; font-weight:500;">3</div><div style="margin-top:18px; font-size:15px; font-weight:500; color:#F2EEE6;">Build</div><div style="margin-top:6px; font-size:13px; color:#9AA096; font-weight:300;">Create &amp; launch</div></div>
-        <div data-reveal data-delay="1700" style="opacity:0; transform:translateY(20px); transition:opacity .7s ease, transform .7s ease; display:flex; flex-direction:column; align-items:center; text-align:center;"><div style="width:44px; height:44px; border-radius:50%; background:#D9C9A3; border:2px solid #D9C9A3; display:flex; align-items:center; justify-content:center; color:#14203a; font-size:15px; font-weight:600;">4</div><div style="margin-top:18px; font-size:15px; font-weight:500; color:#F2EEE6;">Grow</div><div style="margin-top:6px; font-size:13px; color:#9AA096; font-weight:300;">Report &amp; refine</div></div>
+      <div class="process-steps" style="position:relative; display:grid; grid-template-columns:repeat(4,1fr); gap:12px;">
+        <div data-reveal data-delay="200" style="opacity:0; transform:translateY(20px); transition:opacity .7s ease, transform .7s ease; display:flex; flex-direction:column; align-items:center; text-align:center;"><div style="width:44px; height:44px; border-radius:50%; background:#14203a; border:2px solid #D9C9A3; display:flex; align-items:center; justify-content:center; color:#D9C9A3; font-size:15px; font-weight:500;">1</div><div class="process-label" style="margin-top:18px; font-size:15px; font-weight:500; color:#F2EEE6;">Discovery call</div><div class="process-sub" style="margin-top:6px; font-size:13px; color:#9AA096; font-weight:300;">Listen first</div></div>
+        <div data-reveal data-delay="700" style="opacity:0; transform:translateY(20px); transition:opacity .7s ease, transform .7s ease; display:flex; flex-direction:column; align-items:center; text-align:center;"><div style="width:44px; height:44px; border-radius:50%; background:#14203a; border:2px solid #D9C9A3; display:flex; align-items:center; justify-content:center; color:#D9C9A3; font-size:15px; font-weight:500;">2</div><div class="process-label" style="margin-top:18px; font-size:15px; font-weight:500; color:#F2EEE6;">Strategy</div><div class="process-sub" style="margin-top:6px; font-size:13px; color:#9AA096; font-weight:300;">Shape the plan</div></div>
+        <div data-reveal data-delay="1200" style="opacity:0; transform:translateY(20px); transition:opacity .7s ease, transform .7s ease; display:flex; flex-direction:column; align-items:center; text-align:center;"><div style="width:44px; height:44px; border-radius:50%; background:#14203a; border:2px solid #D9C9A3; display:flex; align-items:center; justify-content:center; color:#D9C9A3; font-size:15px; font-weight:500;">3</div><div class="process-label" style="margin-top:18px; font-size:15px; font-weight:500; color:#F2EEE6;">Build</div><div class="process-sub" style="margin-top:6px; font-size:13px; color:#9AA096; font-weight:300;">Create &amp; launch</div></div>
+        <div data-reveal data-delay="1700" style="opacity:0; transform:translateY(20px); transition:opacity .7s ease, transform .7s ease; display:flex; flex-direction:column; align-items:center; text-align:center;"><div style="width:44px; height:44px; border-radius:50%; background:#D9C9A3; border:2px solid #D9C9A3; display:flex; align-items:center; justify-content:center; color:#14203a; font-size:15px; font-weight:600;">4</div><div class="process-label" style="margin-top:18px; font-size:15px; font-weight:500; color:#F2EEE6;">Grow</div><div class="process-sub" style="margin-top:6px; font-size:13px; color:#9AA096; font-weight:300;">Report &amp; refine</div></div>
       </div>
     </div>
   </section>
 
   <section id="work" style="position:relative; padding:clamp(80px,11vh,160px) clamp(20px,7vw,110px); background:linear-gradient(180deg, #14203a, #101a30); overflow:hidden;">
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:clamp(40px,6vw,90px); align-items:center; max-width:1200px; margin:0 auto;">
+    <div class="work-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:clamp(40px,6vw,90px); align-items:center; max-width:1200px; margin:0 auto;">
       <div data-reveal style="opacity:0; transform:translateY(28px); transition:opacity .9s cubic-bezier(.22,.61,.36,1), transform .9s cubic-bezier(.22,.61,.36,1);">
         <div style="font-size:12px; letter-spacing:0.3em; text-transform:uppercase; color:#D9C9A3; margin-bottom:20px;">In-house product</div>
         <h2 style="margin:0 0 22px; font-weight:400; font-size:clamp(30px,4.2vw,52px); line-height:1.06; letter-spacing:-0.015em;">A golf coaching app,<br>built &amp; tested on the course.</h2>
@@ -313,7 +329,7 @@
       <p style="margin:0; font-size:17px; line-height:1.6; color:#AFB5AB; font-weight:300;">Tell us what you're working on. We'll get back to you within one business day.</p>
     </div>
 
-    <div style="position:relative; display:grid; grid-template-columns:0.85fr 1.15fr; gap:clamp(28px,4vw,56px); max-width:1100px; align-items:start;">
+    <div class="contact-grid" style="position:relative; display:grid; grid-template-columns:0.85fr 1.15fr; gap:clamp(28px,4vw,56px); max-width:1100px; align-items:start;">
       <div data-reveal style="opacity:0; transform:translateY(28px); transition:opacity .9s cubic-bezier(.22,.61,.36,1), transform .9s cubic-bezier(.22,.61,.36,1); display:flex; flex-direction:column; gap:24px;">
         <div style="padding:22px 24px; border:1px solid rgba(217,201,163,0.16); border-radius:14px; background:rgba(27,42,74,0.5);">
           <div style="font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#7A8B6F; margin-bottom:8px;">Email us directly</div>
@@ -336,7 +352,7 @@
       <div data-reveal data-delay="140" style="opacity:0; transform:translateY(28px); transition:opacity .9s cubic-bezier(.22,.61,.36,1), transform .9s cubic-bezier(.22,.61,.36,1); padding:clamp(28px,3vw,40px); border:1px solid rgba(217,201,163,0.18); border-radius:16px; background:linear-gradient(160deg, rgba(27,42,74,0.9), rgba(20,32,58,0.6));">
         <div id="contact-form-wrap">
           <form id="contact-form" style="display:flex; flex-direction:column; gap:18px;">
-            <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+            <div class="form-row" style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
               <div style="display:flex; flex-direction:column; gap:8px;"><label style="font-size:12px; letter-spacing:0.08em; color:#AFB5AB;">Your name</label><input type="text" required placeholder="Jane Smith" style="background:rgba(15,26,45,0.8); border:1px solid rgba(217,201,163,0.2); border-radius:10px; padding:13px 14px; font-size:14px; color:#F2EEE6;"></div>
               <div style="display:flex; flex-direction:column; gap:8px;"><label style="font-size:12px; letter-spacing:0.08em; color:#AFB5AB;">Email address</label><input type="email" required placeholder="jane@business.co.uk" style="background:rgba(15,26,45,0.8); border:1px solid rgba(217,201,163,0.2); border-radius:10px; padding:13px 14px; font-size:14px; color:#F2EEE6;"></div>
             </div>
@@ -370,7 +386,7 @@
   </section>
 
   <footer style="position:relative; border-top:1px solid rgba(217,201,163,0.12); padding:clamp(48px,6vw,72px) clamp(20px,7vw,110px) 40px;">
-    <div style="display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:clamp(24px,4vw,48px); max-width:1200px; margin:0 auto;">
+    <div class="footer-grid" style="display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:clamp(24px,4vw,48px); max-width:1200px; margin:0 auto;">
       <div>
         <a href="#top" style="display:flex; align-items:center; gap:10px; color:#F2EEE6; font-weight:500; letter-spacing:0.14em; font-size:14px; text-transform:uppercase; margin-bottom:16px;"><span style="display:inline-block; width:9px; height:9px; border-radius:2px; background:#D9C9A3; transform:rotate(45deg);"></span>Hamr Digital</a>
         <p style="margin:0; font-size:14px; color:#8f96a3; font-weight:300; max-width:280px; line-height:1.6;">Social media &amp; web development for businesses that want to grow.</p>
